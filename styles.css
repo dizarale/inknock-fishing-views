@@ -1,0 +1,15 @@
+
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+img {
+  vertical-align: middle;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  float: left;
+  display: block;
+  object-fit: cove;
+}

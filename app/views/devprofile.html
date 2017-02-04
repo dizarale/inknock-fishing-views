@@ -1,0 +1,23 @@
+<div class="container" style="margin-top:20px">
+  <div class="row justify-content-center">
+    <h1 class="col-md-10" style="text-align:center;color:white;">Developer Profiles</h1>
+  </div>
+  <hr color="white">
+  <div class="row">
+    <div class="card col-md-4 col-sm-10 offset-sm-1 offset-md-0 col-10 offset-1" style="padding:0px"  *ngFor="let devprofile of devprofiles">
+      <img class="card-img-top" src="{{devprofile.Display}}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{devprofile.Name}}</h4>
+        <p class="card-text">{{devprofile.Carerr}}</p>
+        <a href="" routerLink="/dev-profile/{{devprofile.Id}}" class="btn btn-primary btn-link btn-block">Dev's Profile</a>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+</div>
