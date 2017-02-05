@@ -2,16 +2,135 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">In-Knock</a>
+  <a class="navbar-brand" href="">InKnock Fishing</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home">Home</a>
+        <a class="nav-link" routerLink="/dev-profile">Find Fishing Park</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/dev-profile">Dev Profile</a>
+        <a class="nav-link" routerLink="/dev-profile">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dev-profile">Board</a>
       </li>
     </ul>
+    <div class="nav-item my-2">
+      <div *ngIf="OauthResponse.accessToken == ''">
+        <button class="btn btn-link" data-toggle="modal" data-target="#SignInModal">Sign in</button>
+        |
+        <button class="btn btn-link" data-toggle="modal" data-target="#RegisterModal">Register</button>
+      </div>
+      <div *ngIf="OauthResponse.accessToken != ''">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm dropdown-toggle btn-outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dizarale Ummnon
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" type="button">My Profile</button>
+            <button class="dropdown-item" type="button">My Fishing Park</button>
+            <button class="dropdown-item" type="button">My Mail</button>
+            <button class="dropdown-item" type="button">My Favorite</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" type="button" (click)="LogOut()">Sign Out</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
   </div>
 </nav>
+
+<!-- SignInModal -->
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RegisterModal -->
+<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-primary btn-block" (click)="FacebookLogin()"><span class="socicon-facebook"></span> Register with Facebook</button>
+          </div>
+        </div>
+        <div class="row" style="margin-top:5px">
+          <div class="col-md-12">
+            <button class="btn btn-danger btn-block" (click)="FacebookLogin()"><span class="socicon-googleplus"></span> Register with Google+</button>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <hr>
+          </div>
+
+        </div>
+        <form>
+          <div class="row">
+            <div class="col-md-12">
+              <md-input-container class="input-full-width">
+                <input md-input type="email" placeholder="Email"  required>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <md-input-container class="input-full-width">
+                <input md-input type="password" placeholder="Password" required>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <md-input-container class="input-full-width">
+                <input md-input type="password" placeholder="Comfirm Password" required>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <md-input-container class="input-full-width">
+                <input md-input placeholder="Username" required>
+              </md-input-container>
+            </div>
+          </div>
+
+
+          <button type="submit" class="btn btn-sm btn-outline-success btn-block">Register</button>
+
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,3 +13,21 @@ img {
   display: block;
   object-fit: cove;
 }
+body
+{
+    overflow-x: hidden;
+}
+.input-full-width {
+  width: 100%;
+}
+.input-half-width {
+  width: 45%;
+}
+
+
+.omb_hrOr {
+	background-color: #cdcdcd;
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}

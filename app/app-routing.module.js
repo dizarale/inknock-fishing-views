@@ -14,8 +14,7 @@ var home_component_1 = require('./component/home-component');
 var devprofile_component_1 = require('./component/devprofile-component');
 var devselectorprofile_component_1 = require('./component/devselectorprofile-component');
 var routes = [
-    { path: '', redirectTo: '/', pathMatch: 'full' },
-    { path: 'home', component: home_component_1.HomeComponent },
+    { path: '', component: home_component_1.HomeComponent },
     { path: 'dev-profile', component: devprofile_component_1.DevProfileComponent },
     { path: 'dev-profile/:id', component: devselectorprofile_component_1.DevSelectorProfileComponent }
 ];

@@ -17,9 +17,11 @@ var app_routing_module_1 = require('./app-routing.module');
 var app_component_1 = require('./app.component');
 var main_component_1 = require('./component/main-component');
 var home_component_1 = require('./component/home-component');
+var home_news_component_1 = require('./component/home-news-component');
 var devprofile_component_1 = require('./component/devprofile-component');
 var devselectorprofile_component_1 = require('./component/devselectorprofile-component');
 var devprofile_service_1 = require('./services/devprofile.service');
+var oauth_service_1 = require('./services/oauth.service');
 var ng2_charts_1 = require('ng2-charts/ng2-charts');
 var AppModule = (function () {
     function AppModule() {
@@ -38,9 +40,10 @@ var AppModule = (function () {
                 main_component_1.MainComponent,
                 home_component_1.HomeComponent,
                 devprofile_component_1.DevProfileComponent,
-                devselectorprofile_component_1.DevSelectorProfileComponent
+                devselectorprofile_component_1.DevSelectorProfileComponent,
+                home_news_component_1.HomeNewsComponent
             ],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, devprofile_service_1.DevprofileService],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, devprofile_service_1.DevprofileService, oauth_service_1.OauthService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

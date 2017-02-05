@@ -8,10 +8,14 @@ import { AppRoutingModule }     from './app-routing.module';
 import { AppComponent }  from './app.component';
 import { MainComponent } from './component/main-component';
 import { HomeComponent } from './component/home-component';
+import { HomeNewsComponent } from './component/home-news-component';
+
 import { DevProfileComponent } from './component/devprofile-component';
 import { DevSelectorProfileComponent } from './component/devselectorprofile-component';
 
 import { DevprofileService } from './services/devprofile.service';
+import { OauthService } from './services/oauth.service';
+
 
 
 
@@ -31,8 +35,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ,HomeComponent
     ,DevProfileComponent
     ,DevSelectorProfileComponent
+    ,HomeNewsComponent
 ],
-providers: [{provide: APP_BASE_HREF, useValue : '/' },DevprofileService],
+providers: [{provide: APP_BASE_HREF, useValue : '/' },DevprofileService,OauthService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
