@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "innovationknock-fishing-views",
+=======
+  "name": "inknock-fishing-views",
+>>>>>>> 1e54ef113b74609b78eb2e18d6d80c82e7a66c63
   "version": "1.0.0",
   "description": "innovationknock-fishing-frontend",
   "scripts": {
@@ -16,7 +20,11 @@
   },
   "repository": {
     "type": "git",
+<<<<<<< HEAD
     "url": "git+https://github.com/dizarale/inknock-fishing-views.git"
+=======
+    "url": "git+https://github.com/dizarale/inknock-fishing-views"
+>>>>>>> 1e54ef113b74609b78eb2e18d6d80c82e7a66c63
   },
   "keywords": [
     "inknock"
