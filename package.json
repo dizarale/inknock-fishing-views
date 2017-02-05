@@ -1,5 +1,5 @@
 {
-  "name": "inknock",
+  "name": "inknock-fishing-views",
   "version": "1.0.0",
   "description": "inknock web",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dizarale/inknock.git"
+    "url": "git+https://github.com/dizarale/inknock-fishing-views"
   },
   "keywords": [
     "inknock"
@@ -23,9 +23,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dizarale/inknock/issues"
+    "url": "https://github.com/dizarale/inknock-fishing-views/issues"
   },
-  "homepage": "https://github.com/dizarale/inknock#readme",
+  "homepage": "https://github.com/dizarale/inknock-fishing-views#readme",
   "dependencies": {
     "@angular/common": "~2.4.0",
     "@angular/compiler": "~2.4.0",

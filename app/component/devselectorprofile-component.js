@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-require("rxjs/add/operator/switchMap");
-var core_1 = require("@angular/core");
-var devprofile_service_1 = require("../services/devprofile.service");
-var router_1 = require("@angular/router");
+require('rxjs/add/operator/switchMap');
+var core_1 = require('@angular/core');
+var devprofile_service_1 = require('../services/devprofile.service');
+var router_1 = require('@angular/router');
 var DevSelectorProfileComponent = (function () {
     function DevSelectorProfileComponent(route, router, devprofileService) {
         this.route = route;
@@ -80,6 +80,7 @@ var DevSelectorProfileComponent = (function () {
             }
         });
     };
+    // events
     DevSelectorProfileComponent.prototype.chartClicked = function (e) {
         console.log(e);
     };
@@ -94,16 +95,14 @@ var DevSelectorProfileComponent = (function () {
     DevSelectorProfileComponent.prototype.chartHovered = function (e) {
         console.log(e);
     };
+    DevSelectorProfileComponent = __decorate([
+        core_1.Component({
+            selector: 'devselector',
+            templateUrl: './contentview/app/views/devselectorprofile.html'
+        }), 
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, devprofile_service_1.DevprofileService])
+    ], DevSelectorProfileComponent);
     return DevSelectorProfileComponent;
 }());
-DevSelectorProfileComponent = __decorate([
-    core_1.Component({
-        selector: 'devselector',
-        templateUrl: './contentview/app/views/devselectorprofile.html'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router,
-        devprofile_service_1.DevprofileService])
-], DevSelectorProfileComponent);
 exports.DevSelectorProfileComponent = DevSelectorProfileComponent;
 //# sourceMappingURL=devselectorprofile-component.js.map
