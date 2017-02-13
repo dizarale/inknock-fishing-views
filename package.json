@@ -15,10 +15,7 @@
     "tsc:w": "tsc -w"
   },
   "repository": {
-<<<<<<< HEAD
     "type": "git",
-=======
->>>>>>> 78cd6d4b5b2408eb381303406aabefbd77a71452
     "url": "git+https://github.com/dizarale/inknock-fishing-views.git"
   },
   "keywords": [
