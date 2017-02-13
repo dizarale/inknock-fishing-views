@@ -26,6 +26,7 @@
 
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
 
+
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
@@ -33,6 +34,7 @@
       'ng2-charts/ng2-charts': 'npm:ng2-charts/ng2-charts.js',
       'ng2-facebook-sdk': 'npm:ng2-facebook-sdk/dist/index.js',
       'ng2-material': 'npm:ng2-material/index.js',
+      'ng2-smart-table/ng2-smart-table':'npm:ng2-smart-table/ng2-smart-table.js',
 
     },
     // packages tells the System loader how to load when no filename and/or no extension

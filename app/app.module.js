@@ -18,9 +18,12 @@ var app_component_1 = require('./app.component');
 var main_component_1 = require('./component/main-component');
 var home_component_1 = require('./component/home-component');
 var home_news_component_1 = require('./component/home-news-component');
+var fishingpark_component_1 = require('./component/fishingpark-component');
+var fishingpark_register_component_1 = require('./component/fishingpark-register-component');
 var devprofile_component_1 = require('./component/devprofile-component');
 var devselectorprofile_component_1 = require('./component/devselectorprofile-component');
 var devprofile_service_1 = require('./services/devprofile.service');
+var initial_service_1 = require('./services/initial.service');
 var oauth_service_1 = require('./services/oauth.service');
 var ng2_charts_1 = require('ng2-charts/ng2-charts');
 var AppModule = (function () {
@@ -41,9 +44,11 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 devprofile_component_1.DevProfileComponent,
                 devselectorprofile_component_1.DevSelectorProfileComponent,
-                home_news_component_1.HomeNewsComponent
+                home_news_component_1.HomeNewsComponent,
+                fishingpark_component_1.FishingParkComponent,
+                fishingpark_register_component_1.FishingParkRegisterComponent
             ],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, devprofile_service_1.DevprofileService, oauth_service_1.OauthService],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, devprofile_service_1.DevprofileService, initial_service_1.InitialService, oauth_service_1.OauthService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

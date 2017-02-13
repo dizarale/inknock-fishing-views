@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "innovationknock-fishing-views",
-=======
-  "name": "inknock-fishing-views",
->>>>>>> 1e54ef113b74609b78eb2e18d6d80c82e7a66c63
   "version": "1.0.0",
   "description": "innovationknock-fishing-frontend",
   "scripts": {
@@ -20,11 +16,7 @@
   },
   "repository": {
     "type": "git",
-<<<<<<< HEAD
     "url": "git+https://github.com/dizarale/inknock-fishing-views.git"
-=======
-    "url": "git+https://github.com/dizarale/inknock-fishing-views"
->>>>>>> 1e54ef113b74609b78eb2e18d6d80c82e7a66c63
   },
   "keywords": [
     "inknock"
@@ -36,11 +28,11 @@
   },
   "homepage": "https://github.com/dizarale/inknock-fishing-views#readme",
   "dependencies": {
-    "@angular/common": "~2.4.0",
-    "@angular/compiler": "~2.4.0",
-    "@angular/core": "~2.4.0",
-    "@angular/forms": "~2.4.0",
-    "@angular/http": "~2.4.0",
+    "@angular/common": "^2.4.0",
+    "@angular/compiler": "^2.4.0",
+    "@angular/core": "^2.4.0",
+    "@angular/forms": "^2.4.0",
+    "@angular/http": "^2.4.0",
     "@angular/material": "^2.0.0-beta.1",
     "@angular/platform-browser": "~2.4.0",
     "@angular/platform-browser-dynamic": "~2.4.0",
@@ -55,12 +47,13 @@
     "hammerjs": "^2.0.8",
     "ng2-charts": "^1.4.4",
     "ng2-material": "^0.8.1",
-    "rxjs": "5.0.1",
+    "rxjs": "^5.0.1",
     "systemjs": "0.19.40",
     "what-input": "^4.0.4",
     "zone.js": "^0.7.4"
   },
   "devDependencies": {
+    "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "^2.5.36",
     "@types/node": "^6.0.46",
     "canonical-path": "0.0.2",

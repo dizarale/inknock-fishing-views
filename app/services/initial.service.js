@@ -11,24 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
-var OauthService = (function () {
-    function OauthService(http) {
+var InitialService = (function () {
+    function InitialService(http) {
         this.http = http;
     }
     // Get all posts from the API
-    OauthService.prototype.OauthFacebook = function (reqObject) {
-        return this.http.post('/api/v1/Oauth/Facebook', reqObject)
+    InitialService.prototype.HomeInit = function () {
+        return this.http.get('/api/v1/Init/Home')
             .map(function (res) { return res.json(); });
     };
-    OauthService.prototype.OauthLogout = function () {
-        return this.http.get('/api/v1/Oauth/Logout')
-            .map(function (res) { return res.json(); });
-    };
-    OauthService = __decorate([
+    InitialService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], OauthService);
-    return OauthService;
+    ], InitialService);
+    return InitialService;
 }());
-exports.OauthService = OauthService;
-//# sourceMappingURL=oauth.service.js.map
+exports.InitialService = InitialService;
+//# sourceMappingURL=initial.service.js.map

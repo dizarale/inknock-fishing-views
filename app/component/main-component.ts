@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-facebook-sdk';
 import { OauthService } from '../services/oauth.service';
+import { InitialService } from '../services/initial.service';
 
 
 @Component({
@@ -9,10 +10,12 @@ import { OauthService } from '../services/oauth.service';
   templateUrl: './contentview/app/views/navi.html'
 })
 
-export class MainComponent  {
-  OauthResponse: any = { accessToken : '' };
+export class MainComponent implements OnInit {
+  OauthResponse: any = { token : '' , pic : '' };
+  InitialPage : any = {};
   constructor(private fb: FacebookService
-             ,private devprofileService: OauthService) {
+             ,private devprofileService: OauthService
+             ,private initialService: InitialService) {
     let fbParams: FacebookInitParams = {
                                    appId: '627857830743486',
                                    xfbml: true,
@@ -20,11 +23,22 @@ export class MainComponent  {
                                    };
     this.fb.init(fbParams);
   }
+  ngOnInit() {
+    // Retrieve posts from the API
+    this.initialService.HomeInit().subscribe(apiresponse => {
+      this.InitialPage = apiresponse;
+      if(typeof apiresponse.User !== "undefined"){
+        this.OauthResponse = apiresponse.User;
+        console.log(apiresponse)
+      }else{
+      }
+    });
+  }
   FacebookLogin(): void {
     this.fb.login().then(
       (response: FacebookLoginResponse) => {
         this.devprofileService.OauthFacebook(response).subscribe(apiresponse => {
-          this.OauthResponse = apiresponse;
+          this.OauthResponse = apiresponse.User;
         });
       },
       (error: any) => console.error(error)

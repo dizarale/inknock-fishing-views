@@ -11,10 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var home_component_1 = require('./component/home-component');
+var fishingpark_component_1 = require('./component/fishingpark-component');
+var fishingpark_register_component_1 = require('./component/fishingpark-register-component');
 var devprofile_component_1 = require('./component/devprofile-component');
 var devselectorprofile_component_1 = require('./component/devselectorprofile-component');
 var routes = [
     { path: '', component: home_component_1.HomeComponent },
+    { path: 'fishing-park', component: fishingpark_component_1.FishingParkComponent },
+    { path: 'fishing-park-register', component: fishingpark_register_component_1.FishingParkRegisterComponent },
     { path: 'dev-profile', component: devprofile_component_1.DevProfileComponent },
     { path: 'dev-profile/:id', component: devselectorprofile_component_1.DevSelectorProfileComponent }
 ];

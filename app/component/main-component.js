@@ -11,11 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ng2_facebook_sdk_1 = require('ng2-facebook-sdk');
 var oauth_service_1 = require('../services/oauth.service');
+var initial_service_1 = require('../services/initial.service');
 var MainComponent = (function () {
-    function MainComponent(fb, devprofileService) {
+    function MainComponent(fb, devprofileService, initialService) {
         this.fb = fb;
         this.devprofileService = devprofileService;
-        this.OauthResponse = { accessToken: '' };
+        this.initialService = initialService;
+        this.OauthResponse = { token: '', pic: '' };
+        this.InitialPage = {};
         var fbParams = {
             appId: '627857830743486',
             xfbml: true,
@@ -23,11 +26,24 @@ var MainComponent = (function () {
         };
         this.fb.init(fbParams);
     }
+    MainComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // Retrieve posts from the API
+        this.initialService.HomeInit().subscribe(function (apiresponse) {
+            _this.InitialPage = apiresponse;
+            if (typeof apiresponse.User !== "undefined") {
+                _this.OauthResponse = apiresponse.User;
+                console.log(apiresponse);
+            }
+            else {
+            }
+        });
+    };
     MainComponent.prototype.FacebookLogin = function () {
         var _this = this;
         this.fb.login().then(function (response) {
             _this.devprofileService.OauthFacebook(response).subscribe(function (apiresponse) {
-                _this.OauthResponse = apiresponse;
+                _this.OauthResponse = apiresponse.User;
             });
         }, function (error) { return console.error(error); });
     };
@@ -44,7 +60,7 @@ var MainComponent = (function () {
             providers: [ng2_facebook_sdk_1.FacebookService],
             templateUrl: './contentview/app/views/navi.html'
         }), 
-        __metadata('design:paramtypes', [ng2_facebook_sdk_1.FacebookService, oauth_service_1.OauthService])
+        __metadata('design:paramtypes', [ng2_facebook_sdk_1.FacebookService, oauth_service_1.OauthService, initial_service_1.InitialService])
     ], MainComponent);
     return MainComponent;
 }());

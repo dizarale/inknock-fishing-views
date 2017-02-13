@@ -1,4 +1,4 @@
-
+@import './node_modules/@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
@@ -22,12 +22,4 @@ body
 }
 .input-half-width {
   width: 45%;
-}
-
-
-.omb_hrOr {
-	background-color: #cdcdcd;
-	height: 1px;
-	margin-top: 0px !important;
-	margin-bottom: 0px !important;
 }

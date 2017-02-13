@@ -1,0 +1,150 @@
+<div class="container-fluid" style="margin-top:10px">
+  <div class="row justify-content-center">
+    <div class="card col-sm-12 offset-sm-0 col-md-10 offset-md-1" style="width: 20rem;">
+      <div class="card-block">
+        <h4 class="card-title" style="text-align:center">ลงทะเบียน</h4>
+      </div>
+      <div class="card-block">
+
+
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-10">
+                <md-input-container class="input-full-width">
+                  <input md-input type="text" placeholder="ชื่อบ่อ / ชื่อธุรกิจ" required>
+                </md-input-container>
+              </div>
+            </div>
+
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-7">
+                <md-input-container class="input-full-width">
+                  <input md-input type="text" placeholder="ข้อมูลสถานที่">
+                </md-input-container>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <select class="form-control" [(ngModel)]="FishingPark.Province">
+                    <option value="" disabled selected>จังหวัด</option>
+                    <option *ngFor="let Province of Provinces" [ngValue]="Province">{{Province}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-4">
+                <md-input-container class="input-full-width">
+                  <input md-input type="text" placeholder="ละติจูด / Latitude ">
+                </md-input-container>
+              </div>
+              <div class="col-md-4">
+                <md-input-container class="input-full-width">
+                  <input md-input type="text" placeholder="ลองติจูด / Longitude ">
+                </md-input-container>
+              </div>
+              <div class="col-md-2">
+                <a href="http://www.latlong.net/" target="_blank"> วิธีการหาตำแหน่ง </a>
+              </div>
+            </div>
+
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-2">
+                ประเภทหมาย :
+              </div>
+              <div class="col-md-8">
+                <md-radio-group [(ngModel)]="FishingPark.ParkType">
+                  <md-radio-button value="1">บ่อตกปลาทั่วไป</md-radio-button>
+                  <md-radio-button value="2">ตกปลาธรรมชาติ</md-radio-button>
+                </md-radio-group>
+              </div>
+            </div>
+            <div *ngIf="FishingPark.ParkType == 1">
+              <div class="row justify-content-center" style="margin-top:10px">
+                <div class="col-md-2">
+                  การนำปลาออก :
+                </div>
+                <div class="col-md-8">
+                  <md-radio-group [(ngModel)]="FishingPark.FishExportType">
+                    <md-radio-button value="1">บุพเฟ่</md-radio-button>
+                    <md-radio-button value="2">มีเงื่อนไขในการนำออก</md-radio-button>
+                    <md-radio-button value="3">ห้ามนำปลาออก</md-radio-button>
+                  </md-radio-group>
+                </div>
+              </div>
+              <div class="row justify-content-center" style="margin-top:10px">
+                <div class="col-md-2">
+                  ประเภทเหยื่อ :
+                </div>
+                <div class="col-md-8">
+                  <md-radio-group [(ngModel)]="FishingPark.LureType">
+                    <md-radio-button value="1">เหยื่อปลอม</md-radio-button>
+                    <md-radio-button value="2">เหยื่อสด</md-radio-button>
+                    <md-radio-button value="3">เหยื่อปลอมและเหยื่อสด</md-radio-button>
+                  </md-radio-group>
+                </div>
+              </div>
+              <div class="row justify-content-center" style="margin-top:10px">
+                <div class="col-md-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ชนิดปลา</th>
+                        <th>ขนาด</th>
+                        <th>จำนวนปัจจุบัน</th>
+                        <th>เพื่ม/ลบ</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let Fish of FishingPark.Fish">
+                        <td>{{Fish.Name}}</td>
+                        <td>{{Fish.Size}}</td>
+                        <td>{{Fish.Num}}</td>
+                        <td><button type="button" class="btn btn-link" (click)="RemoveFish(Fish)">ลบ</button></td>
+                      </tr>
+                      <tr>
+                        <td><div class="form-group">
+                          <select class="form-control" [(ngModel)]="Fish.Name">
+                            <option value="" disabled selected>ชนิดปลา</option>
+                            <option *ngFor="let fish of Fishs" [ngValue]="fish.Name">{{fish.Name}}</option>
+                          </select>
+                        </div></td>
+                        <td><md-input-container class="input-full-width">
+                          <input md-input type="text" placeholder="ไซร์" [(ngModel)]="Fish.Size">
+                        </md-input-container></td>
+                        <td><md-input-container class="input-full-width">
+                          <input md-input type="number" placeholder="ใส่ 0 หากไม่ทราบจำนวนที่แน่ชัด" [(ngModel)]="Fish.Num">
+                        </md-input-container></td>
+                        <td><button type="button" class="btn btn-link" (click)="AddFish(Fish)">เพื่ม</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <hr>
+              </div>
+
+
+
+
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-sm btn-outline-success btn-block">Register</button>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
