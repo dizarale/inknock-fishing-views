@@ -13,6 +13,13 @@ export class FishingParkRegisterComponent implements OnInit {
   Provinces :any = ['Bangkok','Samutsakhon'];
   Fishs : any = [{Name:'ปลากระพง'},{Name:'ปลาเก๋า'},{Name:'ปลาบึก'}];
   Fish :any = {};
+  Facilities : any = [
+  { Key: "Carpark", Name: "ที่จอดรถ", Value:true},
+  { Key: "FoodService", Name: "อาหาร", Value:true},
+  { Key: "DrinkService", Name: "น้ำดื่ม", Value:true},
+  { Key: "Toilet", Name: "ห้องน้ำ", Value:true},
+  { Key: "FishingGear", Name: "อุปกรณ์ตกปลา", Value:false}
+];
   constructor(private devprofileService: DevprofileService) { }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
-<div class="container-fluid" style="margin-top:10px">
+<div class="container" style="margin-top:10px">
   <div class="row justify-content-center">
-    <div class="card col-sm-12 offset-sm-0 col-md-10 offset-md-1" style="width: 20rem;">
+    <div class="card col-md-10 offset-md-1 col-sm-12 offset-sm-0 " style="width: 20rem;">
       <div class="card-block">
         <h4 class="card-title" style="text-align:center">ลงทะเบียน</h4>
       </div>
@@ -50,6 +50,19 @@
             </div>
 
             <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-5">
+                <md-input-container class="input-full-width">
+                  <input md-input type="time" placeholder="เวลาเปิด {{OpenTime}} " [(ngModel)]="OpenTime">
+                </md-input-container>
+              </div>
+              <div class="col-md-5">
+                <md-input-container class="input-full-width">
+                  <input md-input type="time" placeholder="เวลาปิด {{CloseTime}} " [(ngModel)]="CloseTime">
+                </md-input-container>
+              </div>
+            </div>
+
+            <div class="row justify-content-center" style="margin-top:10px">
               <div class="col-md-2">
                 ประเภทหมาย :
               </div>
@@ -86,8 +99,10 @@
                 </div>
               </div>
               <div class="row justify-content-center" style="margin-top:10px">
-                <div class="col-md-12">
-                  <table class="table">
+                <div class="col-1">
+                </div>
+                <div class="col-md-10">
+                  <table class="table table-responsive">
                     <thead>
                       <tr>
                         <th>ชนิดปลา</th>
@@ -121,30 +136,205 @@
                     </tbody>
                   </table>
                 </div>
+
                 <hr>
               </div>
+            </div>
+
+            <div *ngIf="FishingPark.ParkType == 2">
+              <div class="row justify-content-center" style="margin-top:10px">
+                <div class="col-md-2">
+                  รูปแบบการตกปลา :
+                </div>
+                <div class="col-md-8">
+                  <md-radio-group [(ngModel)]="FishingPark.FishExportType">
+                    <md-radio-button value="1"></md-radio-button>
+                    <md-radio-button value="2">มีเงื่อนไขในการนำออก</md-radio-button>
+                    <md-radio-button value="3">ห้ามนำปลาออก</md-radio-button>
+                  </md-radio-group>
+                </div>
+              </div>
+              <div class="row justify-content-center" style="margin-top:10px">
+                <div class="col-md-2">
+                  ประเภทเหยื่อ :
+                </div>
+                <div class="col-md-8">
+                  <md-radio-group [(ngModel)]="FishingPark.LureType">
+                    <md-radio-button value="1">เหยื่อปลอม</md-radio-button>
+                    <md-radio-button value="2">เหยื่อสด</md-radio-button>
+                    <md-radio-button value="3">เหยื่อปลอมและเหยื่อสด</md-radio-button>
+                  </md-radio-group>
+                </div>
+              </div>
+              <div class="row justify-content-center" style="margin-top:10px">
+                <div class="col-1">
+                </div>
+                <div class="col-md-10">
+                  <table class="table table-responsive">
+                    <thead>
+                      <tr>
+                        <th>ชนิดปลา</th>
+                        <th>ขนาด</th>
+                        <th>จำนวนปัจจุบัน</th>
+                        <th>เพื่ม/ลบ</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let Fish of FishingPark.Fish">
+                        <td>{{Fish.Name}}</td>
+                        <td>{{Fish.Size}}</td>
+                        <td>{{Fish.Num}}</td>
+                        <td><button type="button" class="btn btn-link" (click)="RemoveFish(Fish)">ลบ</button></td>
+                      </tr>
+                      <tr>
+                        <td><div class="form-group">
+                          <select class="form-control" [(ngModel)]="Fish.Name">
+                            <option value="" disabled selected>ชนิดปลา</option>
+                            <option *ngFor="let fish of Fishs" [ngValue]="fish.Name">{{fish.Name}}</option>
+                          </select>
+                        </div></td>
+                        <td><md-input-container class="input-full-width">
+                          <input md-input type="text" placeholder="ไซร์" [(ngModel)]="Fish.Size">
+                        </md-input-container></td>
+                        <td><md-input-container class="input-full-width">
+                          <input md-input type="number" placeholder="ใส่ 0 หากไม่ทราบจำนวนที่แน่ชัด" [(ngModel)]="Fish.Num">
+                        </md-input-container></td>
+                        <td><button type="button" class="btn btn-link" (click)="AddFish(Fish)">เพื่ม</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <hr>
+              </div>
+            </div>
 
 
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-3">
+                ค่าใช้จ่ายในแต่ละวัน
+              </div>
+              <div class="col-md-7">
+              </div>
+            </div>
 
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-1">
+              </div>
+              <div class="col-md-10">
+                <table class="table table-responsive">
+                  <thead>
+                    <tr>
+                      <th>วัน</th>
+                      <th>ราคา</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>วันจันทร์</td>
+                      <td>
+                        <input type="number" class="form-control" placeholder="ราคา (บาท)">
+                      </td>
+                      <td>
+                        <textarea class="form-control" rows="1"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>วันอังคาร</td>
+                      <td>
+                        <input type="number" class="form-control" placeholder="ราคา (บาท)">
+                      </td>
+                      <td>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>วันพุธ</td>
+                      <td>
+                        <input type="number" class="form-control" placeholder="ราคา (บาท)">
+                      </td>
+                      <td>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>วันพฤหัสบดี</td>
+                      <td>
+                        <input type="number" class="form-control" placeholder="ราคา (บาท)">
+                      </td>
+                      <td>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>วันศุกร์</td>
+                      <td>
+                        <input type="number" class="form-control" placeholder="ราคา (บาท)">
+                      </td>
+                      <td>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>วันเสาร์</td>
+                      <td>
+                        <input type="number" class="form-control" placeholder="ราคา (บาท)">
+                      </td>
+                      <td>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>วันอาทิตย์</td>
+                      <td>
+                        <input type="number" class="form-control" placeholder="ราคา (บาท)">
+                      </td>
+                      <td>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-
+              <hr>
             </div>
 
 
 
 
+
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-3">
+                สิ่งอำนวยความสะดวก
+              </div>
+              <div class="col-md-7">
+              </div>
+            </div>
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-10" *ngFor="let Facility of Facilities">
+                <md-checkbox [(ngModel)]="Facility.Value">{{Facility.Name}}</md-checkbox>
+              </div>
+            </div>
+            <div class="row justify-content-center" style="margin-top:10px">
+              <div class="col-md-10">
+                <md-input-container class="input-full-width">
+                  <textarea md-input placeholder="รายละเอียดเพื่มเติม"></textarea>
+                </md-input-container>
+              </div>
+            </div>
+
+
           </div>
+
+
+          <button type="submit" class="btn btn-sm btn-outline-success btn-block">Register</button>
+
+
+
+
         </div>
-
-
-
-
-        <button type="submit" class="btn btn-sm btn-outline-success btn-block">Register</button>
-
-
-
-
       </div>
     </div>
   </div>
-</div>
