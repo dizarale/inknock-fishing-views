@@ -12,7 +12,7 @@
             <div class="row justify-content-center" style="margin-top:10px">
               <div class="col-md-10">
                 <md-input-container class="input-full-width">
-                  <input md-input type="text" placeholder="ชื่อบ่อ / ชื่อธุรกิจ" required>
+                  <input mdInput type="text" placeholder="ชื่อบ่อ / ชื่อธุรกิจ" required>
                 </md-input-container>
               </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="row justify-content-center" style="margin-top:10px">
               <div class="col-md-7">
                 <md-input-container class="input-full-width">
-                  <input md-input type="text" placeholder="ข้อมูลสถานที่">
+                  <input mdInput type="text" placeholder="ข้อมูลสถานที่">
                 </md-input-container>
               </div>
               <div class="col-md-3">
@@ -36,12 +36,12 @@
             <div class="row justify-content-center" style="margin-top:10px">
               <div class="col-md-4">
                 <md-input-container class="input-full-width">
-                  <input md-input type="text" placeholder="ละติจูด / Latitude ">
+                  <input mdInput type="number" placeholder="ละติจูด / Latitude ">
                 </md-input-container>
               </div>
               <div class="col-md-4">
                 <md-input-container class="input-full-width">
-                  <input md-input type="text" placeholder="ลองติจูด / Longitude ">
+                  <input mdInput type="number" placeholder="ลองติจูด / Longitude ">
                 </md-input-container>
               </div>
               <div class="col-md-2">
@@ -52,12 +52,12 @@
             <div class="row justify-content-center" style="margin-top:10px">
               <div class="col-md-5">
                 <md-input-container class="input-full-width">
-                  <input md-input type="time" placeholder="เวลาเปิด {{OpenTime}} " [(ngModel)]="OpenTime">
+                  <input mdInput type="time" placeholder="เวลาเปิด {{OpenTime}} " [(ngModel)]="OpenTime">
                 </md-input-container>
               </div>
               <div class="col-md-5">
                 <md-input-container class="input-full-width">
-                  <input md-input type="time" placeholder="เวลาปิด {{CloseTime}} " [(ngModel)]="CloseTime">
+                  <input mdInput type="time" placeholder="เวลาปิด {{CloseTime}} " [(ngModel)]="CloseTime">
                 </md-input-container>
               </div>
             </div>
@@ -126,10 +126,10 @@
                           </select>
                         </div></td>
                         <td><md-input-container class="input-full-width">
-                          <input md-input type="text" placeholder="ไซร์" [(ngModel)]="Fish.Size">
+                          <input mdInput type="text" placeholder="ไซร์" [(ngModel)]="Fish.Size">
                         </md-input-container></td>
                         <td><md-input-container class="input-full-width">
-                          <input md-input type="number" placeholder="ใส่ 0 หากไม่ทราบจำนวนที่แน่ชัด" [(ngModel)]="Fish.Num">
+                          <input mdInput type="number" placeholder="ใส่ 0 หากไม่ทราบจำนวนที่แน่ชัด" [(ngModel)]="Fish.Num">
                         </md-input-container></td>
                         <td><button type="button" class="btn btn-link" (click)="AddFish(Fish)">เพื่ม</button></td>
                       </tr>
@@ -141,7 +141,7 @@
               </div>
             </div>
 
-            <div *ngIf="FishingPark.ParkType == 2">
+            <div *ngIf="FishingPark.ParkType === 2">
               <div class="row justify-content-center" style="margin-top:10px">
                 <div class="col-md-2">
                   รูปแบบการตกปลา :
@@ -194,10 +194,10 @@
                           </select>
                         </div></td>
                         <td><md-input-container class="input-full-width">
-                          <input md-input type="text" placeholder="ไซร์" [(ngModel)]="Fish.Size">
+                          <input mdInput type="text" placeholder="ไซร์" [(ngModel)]="Fish.Size">
                         </md-input-container></td>
                         <td><md-input-container class="input-full-width">
-                          <input md-input type="number" placeholder="ใส่ 0 หากไม่ทราบจำนวนที่แน่ชัด" [(ngModel)]="Fish.Num">
+                          <input mdInput type="number" placeholder="ใส่ 0 หากไม่ทราบจำนวนที่แน่ชัด" [(ngModel)]="Fish.Num">
                         </md-input-container></td>
                         <td><button type="button" class="btn btn-link" (click)="AddFish(Fish)">เพื่ม</button></td>
                       </tr>
@@ -246,7 +246,7 @@
                         <input type="number" class="form-control" placeholder="ราคา (บาท)">
                       </td>
                       <td>
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control" rows="1"></textarea>
                       </td>
                     </tr>
                     <tr>
@@ -255,7 +255,7 @@
                         <input type="number" class="form-control" placeholder="ราคา (บาท)">
                       </td>
                       <td>
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control" rows="1"></textarea>
                       </td>
                     </tr>
                     <tr>
@@ -264,7 +264,7 @@
                         <input type="number" class="form-control" placeholder="ราคา (บาท)">
                       </td>
                       <td>
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control" rows="1"></textarea>
                       </td>
                     </tr>
                     <tr>
@@ -273,7 +273,7 @@
                         <input type="number" class="form-control" placeholder="ราคา (บาท)">
                       </td>
                       <td>
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control" rows="1"></textarea>
                       </td>
                     </tr>
                     <tr>
@@ -282,7 +282,7 @@
                         <input type="number" class="form-control" placeholder="ราคา (บาท)">
                       </td>
                       <td>
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control" rows="1"></textarea>
                       </td>
                     </tr>
                     <tr>
@@ -291,7 +291,7 @@
                         <input type="number" class="form-control" placeholder="ราคา (บาท)">
                       </td>
                       <td>
-                        <textarea class="form-control" rows="2"></textarea>
+                        <textarea class="form-control" rows="1"></textarea>
                       </td>
                     </tr>
                   </tbody>
@@ -320,7 +320,7 @@
             <div class="row justify-content-center" style="margin-top:10px">
               <div class="col-md-10">
                 <md-input-container class="input-full-width">
-                  <textarea md-input placeholder="รายละเอียดเพื่มเติม"></textarea>
+                  <textarea mdInput placeholder="รายละเอียดเพื่มเติม"></textarea>
                 </md-input-container>
               </div>
             </div>

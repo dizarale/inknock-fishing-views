@@ -9,7 +9,7 @@ import { FishingParkRegisterComponent } from './component/fishingpark-register-c
 import { DevProfileComponent } from './component/devprofile-component';
 import { DevSelectorProfileComponent } from './component/devselectorprofile-component';
 const routes: Routes = [
-  { path: '',component: HomeComponent},
+  { path: '',component: HomeComponent,data : {OauthResponse : true}},
   { path: 'fishing-park', component: FishingParkComponent },
   { path: 'fishing-park-register', component: FishingParkRegisterComponent },
   { path: 'dev-profile', component: DevProfileComponent },
@@ -19,4 +19,6 @@ const routes: Routes = [
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+
+}

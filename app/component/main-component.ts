@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,Output, EventEmitter,OnInit } from '@angular/core';
 import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-facebook-sdk';
 import { OauthService } from '../services/oauth.service';
 import { InitialService } from '../services/initial.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'main',
@@ -12,10 +12,12 @@ import { InitialService } from '../services/initial.service';
 
 export class MainComponent implements OnInit {
   OauthResponse: any = { token : '' , pic : '' };
+
   InitialPage : any = {};
   constructor(private fb: FacebookService
              ,private devprofileService: OauthService
-             ,private initialService: InitialService) {
+             ,private initialService: InitialService
+             ,private router: Router) {
     let fbParams: FacebookInitParams = {
                                    appId: '627857830743486',
                                    xfbml: true,
@@ -29,7 +31,7 @@ export class MainComponent implements OnInit {
       this.InitialPage = apiresponse;
       if(typeof apiresponse.User !== "undefined"){
         this.OauthResponse = apiresponse.User;
-        console.log(apiresponse)
+        this.router.navigate(['',{OauthResponse : this.OauthResponse}]);
       }else{
       }
     });

@@ -12,11 +12,13 @@ var core_1 = require('@angular/core');
 var ng2_facebook_sdk_1 = require('ng2-facebook-sdk');
 var oauth_service_1 = require('../services/oauth.service');
 var initial_service_1 = require('../services/initial.service');
+var router_1 = require('@angular/router');
 var MainComponent = (function () {
-    function MainComponent(fb, devprofileService, initialService) {
+    function MainComponent(fb, devprofileService, initialService, router) {
         this.fb = fb;
         this.devprofileService = devprofileService;
         this.initialService = initialService;
+        this.router = router;
         this.OauthResponse = { token: '', pic: '' };
         this.InitialPage = {};
         var fbParams = {
@@ -33,7 +35,7 @@ var MainComponent = (function () {
             _this.InitialPage = apiresponse;
             if (typeof apiresponse.User !== "undefined") {
                 _this.OauthResponse = apiresponse.User;
-                console.log(apiresponse);
+                _this.router.navigate(['', { OauthResponse: _this.OauthResponse }]);
             }
             else {
             }
@@ -60,7 +62,7 @@ var MainComponent = (function () {
             providers: [ng2_facebook_sdk_1.FacebookService],
             templateUrl: './contentview/app/views/navi.html'
         }), 
-        __metadata('design:paramtypes', [ng2_facebook_sdk_1.FacebookService, oauth_service_1.OauthService, initial_service_1.InitialService])
+        __metadata('design:paramtypes', [ng2_facebook_sdk_1.FacebookService, oauth_service_1.OauthService, initial_service_1.InitialService, router_1.Router])
     ], MainComponent);
     return MainComponent;
 }());
